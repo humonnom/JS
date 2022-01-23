@@ -16,3 +16,5 @@ var ice = "ice";
 console.log(coffee[ice]); //=> it works
 
 console.log(coffee["hot"]); // => undefined
+
+console.log(coffee.is); // => undefined
