@@ -1,21 +1,13 @@
 // new 연산자 사용
-function structure(first, last) {
+function Structure(first, last) {
   this.first = first;
   this.last = last;
   this.printer = function () {
     return this.first + " " + this.last;
   };
 }
-var building = new structure("삼성", "빌딩");
-console.log(building.printer());
+const building1 = new Structure("Samsung", "빌딩");
+console.log(building1.printer());
 
-// new 연산자 사용 x
-function structure(first, last) {
-  this.first = first;
-  this.last = last;
-  this.printer = function () {
-    return this.first + " " + this.last;
-  };
-}
-var building = structure("삼성", "빌딩");
+const building2 = Structure("Apple", "빌딩");
 console.log(printer()); // 전역객체로 되어있음
