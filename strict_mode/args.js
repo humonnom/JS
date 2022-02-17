@@ -1,8 +1,12 @@
 // non strict mode: arguments 객체가 변경됨
 function foo(name, age) {
-  name = "juhoon";
+  "use strict";
+  name = "nice";
   age = 28;
   console.log(arguments);
+  arguments[0] = "changed";
+  console.log(arguments);
+  return name;
 }
 
-foo("jueun", 29);
+console.log(foo("jueun", 29));
