@@ -55,21 +55,26 @@ console.log(type);
 // doesn't have [this, arguments, super, new.target] binding
 // - if use one of these in arrow function, it will be found in higher scope.
 // -> "lexical this"
-class Person {
+class Person { // 클래스 내부는 strict mode로 실행됨
   constructor(name) {
     this.name = name;
   }
 
   announce(arr) {
-    // return arr.map(function (item) {
+    console.log(this); // 여기서 this는 jueun 객체를 가리킴
+    const that = this; // this를 회피시킴
+    // map에 콜백함수로 일반 함수를 전달한 경우
+    return arr.map(function (item) {
+      // return `Hi ${item}, my name is ${that.name}.`; // 회피시키는 방법
+      // return `Hi ${item}, my name is ${this.name}.`; // Q: 결과는?
+    });
+    // map에 화살표 함수를 전달한 경우
+    // return arr.map((item) => {
     //   return `Hi ${item}, my name is ${this.name}.`;
     // });
-    return arr.map((item) => {
-      return `Hi ${item}, my name is ${this.name}.`;
-    });
   }
 }
-
+this.name = "error"; // 전역에 등록
 const jueun = new Person("jueun");
-const greeting = jueun.announce(["yeji", "homin", "juehoon", "jinyoung"]);
+const greeting = jueun.announce(["a", "b", "c", "d"]);
 console.log(greeting);

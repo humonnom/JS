@@ -21,10 +21,10 @@ const Person = function (name) {
 };
 
 //일반함수로 호출 => [[Call]]이 호출됨
-const juhoon = Person("juhoon");
+const dohoon = Person("dohoon");
 
-console.log("[juhoon]");
-console.log(juhoon); // => undefined를 반환함
+console.log("[dohoon]");
+console.log(dohoon); // => undefined를 반환함
 printName(); // => 전역에 바인딩 됨
 
 //생성자로서 호출 => [[Construct]]가 호출됨
